@@ -14,9 +14,7 @@ import requests
 import json
 
 client_secret = config('amadeus_secret')
-print(client_secret)
 client_id = config('amadeus_client')
-print(client_id)
 
 def jprint(obj):
     # create a formatted string of the Python JSON object
