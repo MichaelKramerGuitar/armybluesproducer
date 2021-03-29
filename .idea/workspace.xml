@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="371c780c-84bd-4f8c-baec-5baf091d3c21" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/armybluesproducer_CLI/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/armybluesproducer_CLI/api_try.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/armybluesproducer_CLI/flight_api_try.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/armyproducer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/armyproducer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0382b471-8c1f-4b4f-834a-dcf3dfda641a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/armybluesproducer_CLI" beforeDir="false" afterPath="$PROJECT_DIR$/armybluesproducer_CLI" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_api_ex/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_api_ex/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_api_ex/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_api_ex/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_api_ex/.idea/travel_api_ex.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_api_ex/api_try/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_api_ex/api_try/api_try.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_api_ex/api_try/flight_api_try.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/armybluesproducer_CLI/api_try.py" beforeDir="false" afterPath="$PROJECT_DIR$/armybluesproducer_CLI/api_try.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/armybluesproducer_CLI/flight_api_try.py" beforeDir="false" afterPath="$PROJECT_DIR$/armybluesproducer_CLI/flight_api_try.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/armybluesproducer_CLI/groups.py" beforeDir="false" afterPath="$PROJECT_DIR$/armybluesproducer_CLI/groups.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/armybluesproducer_CLI/travel_budget_calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/armybluesproducer_CLI/travel_budget_calculator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/armybluesproducer_CLI" />
   </component>
-  <component name="ProjectId" id="1qOfiv4cg3iw5BeoqmtfNRIkDAN" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1qOZata1GKVyj2VGNOPn0epyr6a" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -38,15 +26,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Michael Kramer\PycharmProjects\armyproducer\armybluesproducer_CLI" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Python.flight_api_try (1)">
-    <configuration name="api_try (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.flight_api_try">
+    <configuration name="api_try" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="armyproducer" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -68,29 +52,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="api_try" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="armyproducer" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/travel_api_ex/api_try" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Michael Kramer\PycharmProjects\armyproducer\armybluesproducer_CLI\api_try.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="flight_api_try (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="flight_api_try" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="armyproducer" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -112,64 +74,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="flight_api_try" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="armyproducer" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/travel_api_ex/api_try" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Michael Kramer\PycharmProjects\armyproducer\armybluesproducer_CLI\flight_api_try.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.flight_api_try (1)" />
-        <item itemvalue="Python.api_try (1)" />
-        <item itemvalue="Python.api_try" />
         <item itemvalue="Python.flight_api_try" />
+        <item itemvalue="Python.api_try" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="371c780c-84bd-4f8c-baec-5baf091d3c21" name="Default Changelist" comment="" />
-      <created>1616955687321</created>
+      <changelist id="0382b471-8c1f-4b4f-834a-dcf3dfda641a" name="Default Changelist" comment="" />
+      <created>1616952665745</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1616955687321</updated>
-      <workItem from="1616955694725" duration="2037000" />
+      <updated>1616952665745</updated>
+      <workItem from="1616952667634" duration="621000" />
+      <workItem from="1616960091530" duration="54000" />
     </task>
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/armyproducer$api_try__1_.coverage" NAME="api_try (1) Coverage Results" MODIFIED="1616957548676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/armybluesproducer_CLI" />
-    <SUITE FILE_PATH="coverage/armyproducer$flight_api_try.coverage" NAME="flight_api_try Coverage Results" MODIFIED="1616957142351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/travel_api_ex/api_try" />
-    <SUITE FILE_PATH="coverage/armyproducer$flight_api_try__1_.coverage" NAME="flight_api_try (1) Coverage Results" MODIFIED="1616957578732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/armybluesproducer_CLI" />
-    <SUITE FILE_PATH="coverage/armyproducer$api_try.coverage" NAME="api_try Coverage Results" MODIFIED="1616957393964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/travel_api_ex/api_try" />
+    <SUITE FILE_PATH="coverage/armyproducer$api_try.coverage" NAME="api_try Coverage Results" MODIFIED="1616960114848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/armybluesproducer_CLI" />
   </component>
 </project>
