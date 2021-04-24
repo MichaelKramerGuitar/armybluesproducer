@@ -3,9 +3,7 @@
 2. instantiate Person's for every member of the tech crew
 3. instantiate Person's for every member of the transportation team
 """
-
-
-from armybluesproducer_CLI.person import Person
+from person import Person
 
 # Blues
 Chief = Person("james", "landrum", "10", "oic", "male")
@@ -18,13 +16,17 @@ Luke = Person("luke", "brimhall", "7", "section leader, trombone", "male")
 Aaron = Person("aaron", "eckert", "6", "trombone", "male")
 Javier = Person("javier", "nero", "6", "lead trombone", "male")
 Jake = Person("jake", "kraft", "6", "trombone, assistant librarian", "male")
-Antonio = Person("antonio", "orta", "8", "section leader, lead alto saxophone", "male")
+Antonio = Person("antonio", "orta", "8", "section leader, lead alto saxophone",
+                 "male")
 Dan = Person("dan", "andrews", "6", "alto saxophone", "male")
-Xavier = Person("xavier", "perez", "6", "musical director, tenor saxophone", "male")
-Clay = Person("clay", "pritchard", "6", "musical director, tenor saxophone", "male")
+Xavier = Person("xavier", "perez", "6", "musical director, tenor saxophone",
+                "male")
+Clay = Person("clay", "pritchard", "6", "tenor saxophone",
+              "male")
 Dustin = Person("dustin", "mollick", "6", "baritone saxophone", "male")
 Regan = Person("regan", "brough", "8", "bass, section leader", "male")
-James = Person("james", "collins", "6", "piano, librarian, assistant producer", "male")
+James = Person("james", "collins", "6", "piano, librarian, assistant producer",
+               "male")
 Eric_blues = Person("eric", "tapper, pers", "6", "drums", "male")
 Michael = Person("michael", "kramer", "7", "producer, guitar", "male")
 

@@ -1,0 +1,10 @@
+title query : Midwest, 2021
+days query : 3
+nights query : 3
+crew query : 4
+driver query : 0
+vehicle query : 0
+driver ot query : 0
+toll query :  Chicago, IL 
+flight query : DCA, MDW, 2021-12-14, 2021-12-17
+meals and lodging query : asfsdf, IL, 2021, Dec
