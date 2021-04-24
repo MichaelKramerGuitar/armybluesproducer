@@ -1,3 +1,13 @@
+"""
+This is a file of helper functions. These fall into three categories:
+    1. Fetching data from the respective API's
+    2. Making calculations based both user input and API responses.
+    3. Making estimated calculations on the Person objects as far as
+    potential roster and room assignments based on roster
+        a. room assignments depend on both gender and rank which are attributes
+        of the Person object. 
+"""
+
 import json
 from decouple import config
 import requests

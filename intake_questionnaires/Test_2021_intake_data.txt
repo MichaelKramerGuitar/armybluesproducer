@@ -1,0 +1,11 @@
+title query : Test, 2021
+duration query : 3
+nights query : 2
+days query : 3
+crew query : 4
+driver query : 1
+vehicle query : 2
+driver ot query : 15
+toll query : Winchester, VA
+flight query : DCA, MDW, 2021-12-14, 2021-12-17
+meals and lodging query : New-York, NY, 2021, Dec

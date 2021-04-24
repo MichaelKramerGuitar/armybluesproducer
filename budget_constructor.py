@@ -1,3 +1,24 @@
+"""
+1. This file pertains to anything having to do with data entry from the app user.
+2. The intake questionnaire is generated based on Question objects
+3. A CompleteSurvey object is generated out of a collection of Questions
+4. a CompleteBudget object is generated based on the data in a CompleteSurvey
+5. There are additional functions below the class Objects grouped here
+which help the these distinct classes interface with each other. These are:
+    a. fetch_survey
+        -read an existing survey from file back into memory to edit a response
+    b. intake_questionnaire
+        - generate questionnaire
+        - ensure questionnaire input is appropriate per Question object type
+    c. review_survey
+        - display newly collected survey to the console for review
+    d. budget_feeder
+        - take a CompleteSurvey and generate a CompleteBudget based on info
+        present in given survey.
+        - write budget to file
+"""
+
+
 import os
 from datetime import datetime
 from functions import *
@@ -739,7 +760,8 @@ if __name__ == '__main__':
     assert isinstance(survey1, CompleteSurvey)
     print(f"Printing type of fetched survey: {type(survey1)}")
     print("*" * 80)
-    question_types = survey1.get_keys()  # get all the keys in CompleteSurvey.__survey dict
+    # get all the keys in CompleteSurvey.__survey dict
+    question_types = survey1.get_keys()
     print(question_types)
     assert type(question_types) == list
     print(f"\n{survey1['title query']} recorded:\n")

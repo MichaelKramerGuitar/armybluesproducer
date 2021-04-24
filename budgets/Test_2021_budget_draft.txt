@@ -1,0 +1,18 @@
+title : Test, 2021
+total people : 24
+non-covid rooms total : 16
+toll roads : {'Dulles Toll Rd', 'Dulles Greenway'}
+Itemized tolls : [4.2, 8.08]
+sum tolls : $24.56
+individual departing flight rate : $142.37 on DELTA AIR LINES
+individual returning flight rate : $153.93 on DELTA AIR LINES
+full band commercial airline estimate after tax : $7,388.33
+full band govt rate flight total estimate : $14,400.00
+Full band meals & incidentals estimate : $4,392.00 for 24 people for 3 days
+Non-covid full band lodging estimate : $3,945.68 for 2 nights for 16 rooms at $118.56 per night
+covid full band lodging individual rooms : $5,918.52 for 2 nights for 24 rooms at $118.56 per person per night
+driver ot estimate : $750.00 for 1 drivers for 15 estimated hours
+NON-COVID ESTIMATED COST : $12,108.56
+COVID NO ROOM SHARING ESTIMATED COST : $14,081.40
+NON-COVID ESTIMATED COST (GOV FLIGHT RATE) : $19,120.24
+COVID NO ROOM SHARING ESTIMATED COST (GOV FLIGHT RATE) : $21,093.08
