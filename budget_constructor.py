@@ -219,7 +219,7 @@ class CompleteBudget():
             budget.close()
 
 
-def fetch_survey():
+def fetch_survey(*args):
     '''
     read an existing survey back into memory to edit a response
     '''
@@ -233,10 +233,17 @@ def fetch_survey():
             if file.endswith('.txt'):
                 intake_files.append(file)
         valid_file_name = False
+        if args:  # for testing file name is passed in args, not input()
+            file_name = args[0]
+            valid_file_name = True
+
         while valid_file_name is False:
-            file_name = input("Please choose an intake data file from "
-                                f"{intake_files} by entering the full file "
-                                "name (ex: this_file_intake_data.txt)===> ")
+            print("Please choose an intake data file from the below "
+                  "list by entering the full file name "
+                  "(ex: this_file_intake_data.txt)")
+            for i, file in enumerate(intake_files):
+                print(f"     {i+1}. {file}")
+            file_name = input("===> ")
             if file_name in intake_files:
                 valid_file_name = True
             else:
@@ -257,238 +264,246 @@ def fetch_survey():
         os.chdir(dir_name)  # change back to main proj directory
         return my_survey
 
-def intake_questionnaire():
+def intake_questionnaire(*args):
     '''
     prompt for user input and clean user input for CompleteSurvey instance
     '''
-
-    # Booleans for validating user input per question type
-    title_query = False; crew_query = False; driver_query = False
-    driver_ot_query = False; vehicle_query = False;
-    toll_query = False; flight_query = False
-    meals_lodging_query = False
-
     survey = {}  # container for survey questions and answers
-    for q_type in questionnaire.keys():
-        # instantiate Question from dict keys
-        question = Question(questionnaire.get(q_type))
-        quest_type = question.generate_question_type()
-        print(quest_type)
-        if quest_type == "title query":
-            while title_query is False:
-                answer = input(f"{question.ask()}: ")
-                try:
-                    event, year = answer.split(', ')
-
-                    if int(year) >= TODAY.year:
-                        # record the answer
-                        question.record_answer(answer)
-                        # write question to survey
-                        survey[question.question_type] = question.fetch_response(
-                            question)
-                    else:
-                        print(
-                            f"Year must be equal to or greater than the current year: "
-                            f"{TODAY.year}")
-                        continue
-                except ValueError:
-                    print("Error: Comma separate the input values: "
-                          "(ex===> Midwest, 2021, ex===> JEN, 2022) "
-                          "please try again.\n")
-                    continue
-                else:
-                    title_query = True
-        elif quest_type == "crew query":
-            # use question instance as prompt
-            while crew_query is False:
-                answer = input(f"{question.ask()}: ")
-                if answer and answer.isnumeric():
-                    print(int(answer) in range(2, 5))
-                    if int(answer) in range(2, 5):  # between 2 and 4
-                        # record the answer
-                        question.record_answer(answer)
-                        # write question to survey
-                        survey[question.question_type] =\
-                            question.fetch_response(question)
-                        break
-                    else:
-                        continue
-        elif quest_type == "driver query":
-            while driver_query is False:
-                answer = input(f"{question.ask()}: ")
-                if answer and answer.isnumeric():
-                    if int(answer) in range(3):  # needs to be 1 or 2
-                        # record the answer
-                        question.record_answer(answer)
-                        # write question to survey
-                        survey[question.question_type] =\
-                            question.fetch_response(question)
-                        driver_query = True
-
-        elif quest_type == "vehicle query":
-            while vehicle_query is False:
-                try:
-                    answer = input(f"{question.ask()}: ")
-
-                    if answer and int(answer) in range(4):
-                        # record the answer
-                        question.record_answer(answer)
-                        # write question to survey
-                        survey[question.question_type] = \
-                            question.fetch_response(question)
-                        vehicle_query = True;
-                    else:
-                        print('Error: please enter a value.')
-                except TypeError:
-                    print(f'Error: "{answer}" is not the proper format, please '
-                          "please a integer.")
-                    continue
-
-        elif quest_type == "driver ot query":
-            while driver_ot_query is False:
-                try:
-                    answer = input(f"{question.ask()}: ")
-                    if answer and int(answer) >= 0:
-                        # record the answer
-                        question.record_answer(answer)
-                        # write question to survey
-                        survey[question.question_type] = \
-                            question.fetch_response(question)
-                        driver_ot_query = True;
-                except TypeError:
-                    continue
-
-        elif quest_type == "toll query":
-            while toll_query is False:
-                try:
-                    answer = input(f"{question.ask()}: ")
-                    city, state = answer.split(', ')
-                    if state.upper() not in STATE_SALES_TAX.keys():
-                        print(f"{state} is an "
-                              f"Invalid State Code. Please try again...")
-                    else:
-                        # record the answer
-                        question.record_answer(answer)
-                        # write question to survey
-                        survey[question.question_type] = \
-                            question.fetch_response(question)
-                        toll_query = True;
-                except ValueError:
-                    print("Error: Comma separate the input values: "
-                          "(ex===> Chicago, IL ex===> New York, NY) "
-                          "please try again.")
-
-        elif quest_type == "flight query":
-            while flight_query is False:
-                try:
-                    answer = input(f"{question.ask()}: ")
-                    depart, dest, dep_date, ret_date = answer.split(', ')
-                except ValueError:
-                    print("InputError: Comma separate the input values: " \
-                              "ex===> DCA, MDW, 2021-12-14, 2021-12-17\n" \
-                              "...please try again.")
-                    continue
-
-
-                try:
-                    year, month, day = dep_date.split('-')
-
-                except ValueError:
-                    print(f"InputError: {dep_date} is not the proper " \
-                                "format. Need===> YYYY-MM-DD\n...please try again.")
-                    continue
-
-                if int(year) < TODAY.year:
-                    print(
-                        f"Year must be equal to or greater than the "
-                        f'current year: "{TODAY.year}"')
-                    continue
-
-                elif int(month) < 1 or int(month) > 12:
-                    print(f"InputError: {month} is not a valid "
-                        f"month. Please enter a number between "
-                        f"1 and 12.")
-                    continue
-                elif int(day) < 1 or int(day) > 31:
-                    print(f"InputError: {day} is not in range "
-                            f"of days in a typical month. Please "
-                            f"enter a number between 1 and 31.")
-                    continue
-                try:
-                    year, month, day = ret_date.split('-')
-
-                except ValueError:
-                    print(f"InputError: {ret_date} is not the proper " \
-                                "format. Need===> YYYY-MM-DD\n...please try again.")
-                    continue
-
-                if int(year) < TODAY.year:
-                    print(
-                        f"Year must be equal to or greater than the "
-                        f'current year: "{TODAY.year}"')
-                    continue
-
-                elif int(month) < 1 or int(month) > 12:
-                    print(f"InputError: {month} is not a valid "
-                        f"month. Please enter a number between "
-                        f"1 and 12.")
-                    continue
-
-                elif int(day) < 1 or int(day) > 31:
-                    print(f"InputError: {day} is not in range "
-                            f"of days in a typical month. Please "
-                            f"enter a number between 1 and 31.")
-                    continue
-
-                else:
-                    # record the answer
-                    question.record_answer(answer)
-                    # write question to survey
-                    survey[question.question_type] = \
-                        question.fetch_response(question)
-                    flight_query = True
-
-        elif quest_type == "meals and lodging query":
-            while meals_lodging_query is False:
-                try:
-                    answer = input(f"{question.ask()}: ")
-                    city, state, year, month = answer.split(', ')
-                except ValueError:
-                    print("Error: Please comma separate values. "
-                          "(ex===> New-York, NY, 2021, Dec")
-
-                if state.upper() not in STATE_SALES_TAX.keys():
-                    print(f"{state} is an "
-                          f"Invalid State Code. Please try again...")
-
-                elif int(year) < TODAY.year:
-                    print(
-                        f"Year must be equal to or greater than the current year: "
-                        f"{TODAY.year}")
-
-                elif len(month) != 3 and month not in meals_lodging_month_format:
-                    print(f'{month} is not in the ' 
-                          f'proper format. Need "Mmm" '
-                          f'(ex===> Dec)')
-                else:
-                    # record the answer
-                    question.record_answer(answer)
-                    # write question to survey
-                    survey[question.question_type] = \
-                        question.fetch_response(question)
-                    meals_lodging_query = True
-
-        else:
-            answer = input(f"{question.ask()}: ")
+    try:  # for testing, pre-filled survey is passed as a dict in args
+        questionnaire_dict = args[0]
+        for q_type in questionnaire_dict:
+            answer = questionnaire_dict.get(q_type)
+            # instantiate question for testing
+            question = Question(questionnaire.get(q_type))
             # record the answer
             question.record_answer(answer)
             # write question to survey
-            survey[question.question_type] =\
-                question.fetch_response(question)
+            survey[q_type] = answer
 
-    # iterate through the survey we just created k == query type, v == question
-    for k, v in questionnaire.items():
-        print(f"{v} : {survey.get(questionnaire.get(k))}")
+    except IndexError:  # for actual use
+        # Booleans for validating user input per question type
+        title_query = False; crew_query = False; driver_query = False
+        driver_ot_query = False; vehicle_query = False;
+        toll_query = False; flight_query = False
+        meals_lodging_query = False
+
+
+        for q_type in questionnaire.keys():
+            # instantiate Question from dict keys
+            question = Question(questionnaire.get(q_type))
+            quest_type = question.generate_question_type()
+            print(quest_type)
+            if quest_type == "title query":
+                while title_query is False:
+                    answer = input(f"{question.ask()}: ")
+                    try:
+                        event, year = answer.split(', ')
+
+                        if int(year) >= TODAY.year:
+                            # record the answer
+                            question.record_answer(answer)
+                            # write question to survey
+                            survey[question.question_type] = question.fetch_response(
+                                question)
+                        else:
+                            print(
+                                f"Year must be equal to or greater than the current year: "
+                                f"{TODAY.year}")
+                            continue
+                    except ValueError:
+                        print("Error: Comma separate the input values: "
+                              "(ex===> Midwest, 2021, ex===> JEN, 2022) "
+                              "please try again.\n")
+                        continue
+                    else:
+                        title_query = True
+            elif quest_type == "crew query":
+                # use question instance as prompt
+                while crew_query is False:
+                    answer = input(f"{question.ask()}: ")
+                    if answer and answer.isnumeric():
+                        print(int(answer) in range(2, 5))
+                        if int(answer) in range(2, 5):  # between 2 and 4
+                            # record the answer
+                            question.record_answer(answer)
+                            # write question to survey
+                            survey[question.question_type] =\
+                                question.fetch_response(question)
+                            break
+                        else:
+                            continue
+            elif quest_type == "driver query":
+                while driver_query is False:
+                    answer = input(f"{question.ask()}: ")
+                    if answer and answer.isnumeric():
+                        if int(answer) in range(3):  # needs to be 1 or 2
+                            # record the answer
+                            question.record_answer(answer)
+                            # write question to survey
+                            survey[question.question_type] =\
+                                question.fetch_response(question)
+                            driver_query = True
+
+            elif quest_type == "vehicle query":
+                while vehicle_query is False:
+                    try:
+                        answer = input(f"{question.ask()}: ")
+
+                        if answer and int(answer) in range(4):
+                            # record the answer
+                            question.record_answer(answer)
+                            # write question to survey
+                            survey[question.question_type] = \
+                                question.fetch_response(question)
+                            vehicle_query = True;
+                        else:
+                            print('Error: please enter a value.')
+                    except TypeError:
+                        print(f'Error: "{answer}" is not the proper format, please '
+                              "please a integer.")
+                        continue
+
+            elif quest_type == "driver ot query":
+                while driver_ot_query is False:
+                    try:
+                        answer = input(f"{question.ask()}: ")
+                        if answer and int(answer) >= 0:
+                            # record the answer
+                            question.record_answer(answer)
+                            # write question to survey
+                            survey[question.question_type] = \
+                                question.fetch_response(question)
+                            driver_ot_query = True;
+                    except TypeError:
+                        continue
+
+            elif quest_type == "toll query":
+                while toll_query is False:
+                    try:
+                        answer = input(f"{question.ask()}: ")
+                        city, state = answer.split(', ')
+                        if state.upper() not in STATE_SALES_TAX.keys():
+                            print(f"{state} is an "
+                                  f"Invalid State Code. Please try again...")
+                        else:
+                            # record the answer
+                            question.record_answer(answer)
+                            # write question to survey
+                            survey[question.question_type] = \
+                                question.fetch_response(question)
+                            toll_query = True;
+                    except ValueError:
+                        print("Error: Comma separate the input values: "
+                              "(ex===> Chicago, IL ex===> New York, NY) "
+                              "please try again.")
+
+            elif quest_type == "flight query":
+                while flight_query is False:
+                    try:
+                        answer = input(f"{question.ask()}: ")
+                        depart, dest, dep_date, ret_date = answer.split(', ')
+                    except ValueError:
+                        print("InputError: Comma separate the input values: " \
+                                  "ex===> DCA, MDW, 2021-12-14, 2021-12-17\n" \
+                                  "...please try again.")
+                        continue
+
+
+                    try:
+                        year, month, day = dep_date.split('-')
+
+                    except ValueError:
+                        print(f"InputError: {dep_date} is not the proper " \
+                             "format. Need===> YYYY-MM-DD\n...please try again.")
+                        continue
+
+                    if int(year) < TODAY.year:
+                        print(
+                            f"Year must be equal to or greater than the "
+                            f'current year: "{TODAY.year}"')
+                        continue
+
+                    elif int(month) < 1 or int(month) > 12:
+                        print(f"InputError: {month} is not a valid "
+                            f"month. Please enter a number between "
+                            f"1 and 12.")
+                        continue
+                    elif int(day) < 1 or int(day) > 31:
+                        print(f"InputError: {day} is not in range "
+                                f"of days in a typical month. Please "
+                                f"enter a number between 1 and 31.")
+                        continue
+                    try:
+                        year, month, day = ret_date.split('-')
+
+                    except ValueError:
+                        print(f"InputError: {ret_date} is not the proper " \
+                              "format. Need===> YYYY-MM-DD\n...please try again.")
+                        continue
+
+                    if int(year) < TODAY.year:
+                        print(
+                            f"Year must be equal to or greater than the "
+                            f'current year: "{TODAY.year}"')
+                        continue
+
+                    elif int(month) < 1 or int(month) > 12:
+                        print(f"InputError: {month} is not a valid "
+                            f"month. Please enter a number between "
+                            f"1 and 12.")
+                        continue
+
+                    elif int(day) < 1 or int(day) > 31:
+                        print(f"InputError: {day} is not in range "
+                                f"of days in a typical month. Please "
+                                f"enter a number between 1 and 31.")
+                        continue
+
+                    else:
+                        # record the answer
+                        question.record_answer(answer)
+                        # write question to survey
+                        survey[question.question_type] = \
+                            question.fetch_response(question)
+                        flight_query = True
+
+            elif quest_type == "meals and lodging query":
+                while meals_lodging_query is False:
+                    try:
+                        answer = input(f"{question.ask()}: ")
+                        city, state, year, month = answer.split(', ')
+                    except ValueError:
+                        print("Error: Please comma separate values. "
+                              "(ex===> New-York, NY, 2021, Dec")
+
+                    if state.upper() not in STATE_SALES_TAX.keys():
+                        print(f"{state} is an "
+                              f"Invalid State Code. Please try again...")
+
+                    elif int(year) < TODAY.year:
+                        print(
+                        f"Year must be equal to or greater than the current year: "
+                        f"{TODAY.year}")
+
+                    elif len(month) != 3 and month not in meals_lodging_month_format:
+                        print(f'{month} is not in the ' 
+                              f'proper format. Need "Mmm" '
+                              f'(ex===> Dec)')
+                    else:
+                        # record the answer
+                        question.record_answer(answer)
+                        # write question to survey
+                        survey[question.question_type] = \
+                            question.fetch_response(question)
+                        meals_lodging_query = True
+
+            else:
+                answer = input(f"{question.ask()}: ")
+                # record the answer
+                question.record_answer(answer)
+                # write question to survey
+                survey[question.question_type] =\
+                    question.fetch_response(question)
 
     return survey
 
@@ -599,7 +614,8 @@ def budget_feeder(survey):
             returning_flight_total = \
                 len(trip_personnel) * float(returning_flight_tax)
 
-            commercial_flight_total = departing_flight_total + returning_flight_total
+            commercial_flight_total = \
+                departing_flight_total + returning_flight_total
             budget['full band commercial airline estimate after tax'] = \
                 f"${commercial_flight_total:,.2f}"
 
@@ -735,6 +751,7 @@ if __name__ == '__main__':
               'days query': '3',
               'crew query': '4',
              'driver query': '1',
+              'vehicle query': '1',
               'driver ot query': '15',
               'toll query': 'Winchester, VA',
               'flight query': 'DCA, MDW, 2021-12-14, 2021-12-17',

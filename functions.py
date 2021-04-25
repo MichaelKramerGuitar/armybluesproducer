@@ -7,7 +7,6 @@ This is a file of helper functions. These fall into three categories:
         a. room assignments depend on both gender and rank which are attributes
         of the Person object. 
 """
-
 import json
 from decouple import config
 import requests
@@ -451,7 +450,6 @@ if __name__ =='__main__':
         print(f"Padded figure for {quantity_on_job} people at "
               f"${GOVT_FLIGHT_FLAT} per person totaling "
               f"${gov_rate_flight_total:,}")
-
 
     except Exception as e:
         print(f"Python Error: {e}")

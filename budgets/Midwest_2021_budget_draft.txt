@@ -1,18 +1,18 @@
 title : Midwest, 2021
-total people : 23
-non-covid rooms total : 15
-toll roads : {'Ohio Tpke', 'Pennsylvania Tpke', 'Indiana Tpke Barrier Toll', 'Chicago Skyway', 'Indiana East-West Toll Rd'}
-Itemized tolls : [21.51, 18.14, 11.92, 3.64, 7.51]
-sum tolls : $0.00
+total people : 25
+non-covid rooms total : 17
+toll roads : {'Chicago Skyway', 'Ohio Tpke', 'Indiana Tpke Barrier Toll', 'Pennsylvania Tpke', 'Indiana East-West Toll Rd'}
+Itemized tolls : [21.45, 18.09, 11.89, 3.63, 7.5]
+sum tolls : $62.56
 individual departing flight rate : $142.37 on DELTA AIR LINES
 individual returning flight rate : $153.93 on DELTA AIR LINES
-full band commercial airline estimate after tax : $7,080.48
-full band govt rate flight total estimate : $13,800.00
-Full band meals & incidentals estimate : $3,864.00 for 23 people for 3 days
-Non-covid full band lodging estimate : $5,334.08 for 3 nights for 15 rooms at $111.56 per night
-covid full band lodging individual rooms : $8,178.93 for 3 nights for 23 rooms at $111.56 per person per night
-driver ot estimate : $0.00 for 0 drivers for 0 estimated hours
-NON-COVID ESTIMATED COST : $12,414.56
-COVID NO ROOM SHARING ESTIMATED COST : $15,259.41
-NON-COVID ESTIMATED COST (GOV FLIGHT RATE) : $19,134.08
-COVID NO ROOM SHARING ESTIMATED COST (GOV FLIGHT RATE) : $21,978.93
+full band commercial airline estimate after tax : $7,696.17
+full band govt rate flight total estimate : $15,000.00
+Full band meals & incidentals estimate : $5,700.00 for 25 people for 3 days
+Non-covid full band lodging estimate : $5,143.30 for 2 nights for 17 rooms at $142.38 per night
+covid full band lodging individual rooms : $7,563.67 for 2 nights for 25 rooms at $142.38 per person per night
+driver ot estimate : $3,000.00 for 2 drivers for 30 estimated hours
+NON-COVID ESTIMATED COST : $15,902.03
+COVID NO ROOM SHARING ESTIMATED COST : $18,322.41
+NON-COVID ESTIMATED COST (GOV FLIGHT RATE) : $23,205.86
+COVID NO ROOM SHARING ESTIMATED COST (GOV FLIGHT RATE) : $25,626.23

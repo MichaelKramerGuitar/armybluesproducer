@@ -1,10 +1,11 @@
 title query : Midwest, 2021
+duration query : 3
+nights query : 2
 days query : 3
-nights query : 3
 crew query : 4
-driver query : 0
-vehicle query : 0
-driver ot query : 0
-toll query :  Chicago, IL 
+driver query : 1
+vehicle query : 1
+driver ot query : 15
+toll query : Winchester, VA
 flight query : DCA, MDW, 2021-12-14, 2021-12-17
-meals and lodging query : asfsdf, IL, 2021, Dec
+meals and lodging query : New-York, NY, 2021, Dec

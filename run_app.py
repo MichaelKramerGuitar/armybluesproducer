@@ -3,9 +3,7 @@
 Postconditions:
 
 """
-import datetime
-from groups import blues_roster, crew, drivers
-from functions import *
+
 from budget_constructor import *
 
 valid_action = False
@@ -13,7 +11,11 @@ ACTIONS = ["make new budget", "edit existing budget"]
 YES_OR_NO = ['y','n']
 SEPARATOR = "*" * 80
 while not valid_action:
-    action = input(f"Please type one of the actions in {ACTIONS}===> ")
+    print("Please choose one of below actions by typing it to the console..."
+          "(ex: edit existing budget)")
+    for i, action in enumerate(ACTIONS):
+        print(f"     {i+1}. {action}")
+    action = input("===> ")
     if action in ACTIONS:
         valid_action = True
     else:
@@ -51,10 +53,13 @@ if action == ACTIONS[0]:  # create a new budget
                 print(SEPARATOR)
                 while editing is True:
                     while not valid_type:
-                        question_type = input(
+                        print(
                                 "Please choose which value above you'd like to "
                                 "edit by typing the corresponding key.\nYou "
-                                f"may choose from...\n{question_types}===> ")
+                                f"may choose from...")
+                        for i, q_type in enumerate(question_types):
+                            print(f"     {i + 1}. {q_type}")
+                        question_type = input("===> ")
                         if question_type in question_types:
                             valid_type = True
 
@@ -87,9 +92,13 @@ if action == ACTIONS[1]:  # edit existing survey
     print(SEPARATOR)
     while editing:
         while not valid_type:
-            question_type = input("Please choose which value above you'd like to "
-                                  "edit by typing the corresponding key.\nYou "
-                                  f"may choose from...\n{question_types}===> ")
+            print(
+                "Please choose which value above you'd like to "
+                "edit by typing the corresponding key.\nYou "
+                f"may choose from...")
+            for i, q_type in enumerate(question_types):
+                print(f"     {i+1}. {q_type}")
+            question_type = input("===> ")
             if question_type in question_types:
                 valid_type = True
 

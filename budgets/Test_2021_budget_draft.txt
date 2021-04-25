@@ -1,7 +1,7 @@
 title : Test, 2021
 total people : 24
 non-covid rooms total : 16
-toll roads : {'Dulles Toll Rd', 'Dulles Greenway'}
+toll roads : {'Dulles Greenway', 'Dulles Toll Rd'}
 Itemized tolls : [4.2, 8.08]
 sum tolls : $24.56
 individual departing flight rate : $142.37 on DELTA AIR LINES

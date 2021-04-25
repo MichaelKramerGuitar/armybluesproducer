@@ -1,7 +1,7 @@
 import unittest
 import os
 from budget_constructor import Question, CompleteSurvey, \
-    questionnaire, fetch_survey, budget_feeder
+    questionnaire, fetch_survey, budget_feeder, intake_questionnaire
 
 class TestQuestion(unittest.TestCase):
 
@@ -59,7 +59,6 @@ class TestCompleteSurvey(unittest.TestCase):
         except Exception as e:
             return e
         file_name = f"{event}_{year}_intake_data.txt"
-        print(file_name)
         with open(os.path.join(dir_name, sub_dir, file_name), 'w') as intake:
             for q_type in self.survey.get_keys():
                 answer = \
@@ -84,7 +83,27 @@ class TestCompleteSurvey(unittest.TestCase):
                          "the survey was not properly updated")
 
 class TestBudgetFeederCompleteBudget(unittest.TestCase):
+    '''
+    ***please note***
+    budget_feeder() has all of the API calls.
+    These are in functions.py:
+        1. get_meals_lodging (line 84)
+        2. get_com_flight_price (line 114)
+        3. get_tolls (line 248)
+    Additionally, budget_feeder calls the following functions defined in
+    functions.py:
+        4. sales_tax_calc (line 54)
+        5. get_gov_flight (line 175)
+        6. get_crew (line 190)
+        7. get_drivers (line 221)
+        8. get_driver_ot (line 234)
+        9. get_total_rooms (line 290)
+        10. json_extract (line 344) which is a code snippet by Todd Birchard
+        of the 'Hackers and Slackers' blog.
+    Further, the .write_to_file() CompleteBudget method defined in
+    budget_constructor.py
 
+    '''
     def setUp(self) -> None:
         self.feeder = {'title query': 'Test, 2021',
               'duration query': '3',
@@ -100,16 +119,7 @@ class TestBudgetFeederCompleteBudget(unittest.TestCase):
 
         self.survey = CompleteSurvey(self.feeder)
         self.budget = budget_feeder(self.survey)
-        '''
-        budget_feeder docstring:
-            1.takes information from intake survey
-            2.translates into new python dictionary,
-            3.instantiates a CompleteBudget instance out of that dictionary,
-            4.writes new budgets to file
-            5. overwrites existing versions of budget file.
-            :param survey: CompleteSurvey
-            :return: None
-        '''
+
     def test_write_to_file(self):
 
         dir_name = os.getcwd()
@@ -136,13 +146,34 @@ class TestBudgetFeederCompleteBudget(unittest.TestCase):
         path_to_file = os.path.join(dir_name, sub_dir, file_name)
         assert os.path.isfile(path_to_file)
 
-###UNCOMMENT BELOW IF WILLING TO TEST USER INPUT FUNCTIONS###
 
-# class TestFetchSurvey(unittest.TestCase):
-#
-#     def test_fetch_survey(self):
-#         survey = fetch_survey()
-#         assert isinstance(survey, CompleteSurvey), 'fetch_survey did not work'
+class TestFetchSurvey(unittest.TestCase):
+
+    def setUp(self) -> None:
+        self.file_name = 'Test_2021_intake_data.txt'
+
+    def test_fetch_survey(self):
+        survey = fetch_survey(self.file_name)
+        assert isinstance(survey, CompleteSurvey), 'fetch_survey did not work'
+
+class TestIntakeQuestionnaire(unittest.TestCase):
+
+    def setUp(self) -> None:
+        self.survey = {'title query': 'TestIntake, 2021',
+              'duration query': '3',
+              'nights query': '2',
+              'days query': '3',
+              'crew query': '4',
+              'driver query': '1',
+              'vehicle query': '2',
+              'driver ot query': '15',
+              'toll query': 'Boston, MA',
+              'flight query': 'DCA, BOS, 2021-12-14, 2021-12-17',
+              'meals and lodging query': 'Boston, MA, 2021, Nov'}
+
+    def test_intake_questionnaire(self):
+        survey = intake_questionnaire(self.survey)
+        self.assertEqual(self.survey, survey, "intake questionnaire is broken")
 
 
 if __name__ == '__main__':
